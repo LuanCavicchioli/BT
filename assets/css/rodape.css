@@ -1,0 +1,39 @@
+.rodape {
+    background-color: #FF8C00;
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza horizontalmente */
+}
+
+.rodape img {
+    width: 30px; 
+    height: 30px; 
+    margin-right: 0px; 
+}
+
+/* Estilize o texto de direitos autorais */
+.rodape ul {
+    list-style: none;
+    padding: 0;
+}
+
+.rodape li {
+    margin: 5px 0;
+}
+
+/* Estilize links no rodapé */
+.rodape a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.rodape a:hover {
+    text-decoration: underline;
+}

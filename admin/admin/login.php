@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/cadastro.css">
-    <title>BuscaTec- Cadastro</title>
+    <title>BuscaTec - Login</title>
 </head>
 
 <body id="principal">
@@ -23,31 +23,19 @@
         <div class="caixa">
             
             <img src="/assets/img/a.png" alt="">
-            <h1>Cadastrar</h1>
-
-            <div class="name">
-                <input type="name" placeholder="Nome">
-            </div>
+            <h1>Login</h1>
 
             <div class="email">
                 <input type="email" placeholder="E-mail">
             </div>
 
-            <div class="cpf">
-                <input type="email" placeholder="CPF">
-            </div>
-
             <div class="senha">
-                <input type="password" placeholder="Senha">
-            </div>
-
-            <div class="confirmasenha">
-                <input type="password" placeholder="Confirmar Senha">
+                <input type="text" placeholder="Senha">
             </div>
 
             <div class="entrar">
-                <p>Ja possui cadastro? <a href="/admin/admin/login.php">Entre agora.</a></p>
-                <input type="submit" value="Cadastrar">
+                <p>Ainda não tem uma conta? <a href="/admin/usuarios/cadastrar.php">Crie uma.</a></p>
+                <input type="submit" value="Entrar">
             </div>
 
         </div>
@@ -57,18 +45,6 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
 
 <?php
     require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/rodape.php";
