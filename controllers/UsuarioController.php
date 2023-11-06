@@ -1,0 +1,57 @@
+<?php
+
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/models/Usuario.php";
+
+    class UsuarioController{
+
+        private $usuarioModel;
+
+        public function __construct(){
+            $this->usuarioModel = new Usuario();
+        }
+
+        public function cadastrarUsuario(){
+            if($_SERVER['REQUEST_METHOD'] === 'POST'){
+                
+                $dados = [
+                    'nome' => $_POST['nome'],  
+                    'senha' => $_POST['senha'], 
+                    'cpf' => $_POST['cpf'],   
+                    'email' => $_POST['email'], 
+                    'fone' => $_POST['fone']
+                ];
+              
+
+                $this->usuarioModel->cadastrar($dados);
+                header('Location: /admin/admin/login.php');
+                exit;
+            }
+        }
+
+        public function loginUsuario(){
+            if($_SERVER['REQUEST_METHOD'] === 'POST'){
+                $email = $_POST['email']; 
+                $senha = $_POST['senha'];
+    
+                if(empty($email)){
+                    header("Location: login.php?error=E-mail é obrigatório."); 
+                    exit();
+                }else if(empty($senha)){
+                    header("Location: login.php?error=A senha é obrigatória.");
+                    exit();
+                }else{
+                    $usuario = Usuario::autenticarLogin($email, $senha);
+                    if ($usuario){ 
+                        session_start(); 
+                        $_SESSION['id_usuario'] = $usuario->id;
+                        header("Location:/admin/infos/planos.php"); 
+                    }else{
+                        echo "E-mail ou senha inválidos"; 
+                        header("Location: "); 
+                    }
+                }
+            }
+        }
+    }
+
+?>

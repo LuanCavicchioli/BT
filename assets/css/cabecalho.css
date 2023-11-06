@@ -1,6 +1,6 @@
 
 *{
-    font-family: 'Robot',sans-serif;
+    font-family: 'Roboto',sans-serif;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -31,18 +31,20 @@ header{
 }
 
 .menu li{
+    font-family: 'Roboto',sans-serif;
     align-items: center;
     display: inline-block;
     margin: 0 10px;
 }
 
 .menu li a{
-    font-family: 'Robot',sans-serif;
+    font-family: 'Roboto',sans-serif;
     font-size: 24px;
     text-decoration: none;
     color: white;
     padding: 10px 10px;
     border-radius: 15px;
+    margin-top: 10px;
 }
 
 .menu li a :hover{

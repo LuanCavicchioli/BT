@@ -1,10 +1,17 @@
 <?php
-    require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecalho.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecalho.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/controllers/UsuarioController.php";
+
+$usuarioController = new UsuarioController();
+
+$usuarioController->cadastrarUsuario();
+
 ?>
 
 <!DOCTYPE html>
 
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,39 +28,41 @@
     <div id="login">
 
         <div class="caixa">
-            
+
             <img src="/assets/img/a.png" alt="">
             <h1>Cadastrar</h1>
+            <form action="cadastrar.php" method="post">
 
-            <div class="name">
-                <input type="name" placeholder="Nome">
-            </div>
+                <div class="name">
+                    <input type="name" name="nome" id="nome"placeholder="Nome">
+                </div>
 
-            <div class="email">
-                <input type="email" placeholder="E-mail">
-            </div>
+                <div class="email">
+                    <input type="email" name="email" id="email" placeholder="E-mail">
+                </div>
 
-            <div class="cpf">
-                <input type="email" placeholder="CPF">
-            </div>
+                <div class="cpf">
+                    <input type="cpf" name="cpf" id="cpf" placeholder="CPF">
+                </div>
 
-            <div class="senha">
-                <input type="password" placeholder="Senha">
-            </div>
+                <div class="telefone">
+                    <input type="telefone" name="fone" id="fone" placeholder="Telefone">
+                </div>
+                <div class="senha">
+                    <input type="password" name="senha" id="senha" placeholder="Senha">
+                </div>
 
-            <div class="confirmasenha">
-                <input type="password" placeholder="Confirmar Senha">
-            </div>
-
-            <div class="entrar">
-                <p>Ja possui cadastro? <a href="/admin/admin/login.php">Entre agora.</a></p>
-                <input type="submit" value="Cadastrar">
-            </div>
+              
+                <div class="entrar">
+                    <p>Ja possui cadastro? <a href="/admin/admin/login.php">Entre agora.</a></p>
+                    <input type="submit" value="Cadastrar">
+                </div>
+            </form>
 
         </div>
 
     </div>
-    
+
 </body>
 
 </html>
@@ -71,5 +80,5 @@
 
 
 <?php
-    require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/rodape.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/rodape.php";
 ?>

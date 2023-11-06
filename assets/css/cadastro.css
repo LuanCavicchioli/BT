@@ -16,6 +16,16 @@ a {
     flex-direction: row;
 }
 
+.telefone input{
+    color: #ffffff;
+    border-radius: 15px;
+    border: none;
+    width: 250px;
+    height: 40px;
+    padding-left: 15px;
+    background-color: #FF8C00;
+    margin-bottom: 15px;
+}
 .name input {
     color: #ffffff;
     border-radius: 15px;
@@ -35,6 +45,7 @@ a {
     height: 40px;
     padding-left: 15px;
     background-color: #FF8C00;
+    margin-bottom: 15px;
 }
 
 .email input {

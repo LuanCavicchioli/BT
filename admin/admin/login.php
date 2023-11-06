@@ -1,10 +1,14 @@
 <?php
-    require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecalho.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecalho.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/controllers/UsuarioController.php";
+
+
 ?>
 
 <!DOCTYPE html>
 
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,31 +25,33 @@
     <div id="login">
 
         <div class="caixa">
-            
+
             <img src="/assets/img/a.png" alt="">
             <h1>Login</h1>
+            <form action="login.php" method="post">
 
             <div class="email">
-                <input type="email" placeholder="E-mail">
+                <input type="email" name="email" id="email" placeholder="E-mail">
             </div>
 
             <div class="senha">
-                <input type="text" placeholder="Senha">
+                <input type="password" name="senha" id="senha" placeholder="Senha">
             </div>
 
             <div class="entrar">
                 <p>Ainda não tem uma conta? <a href="/admin/usuarios/cadastrar.php">Crie uma.</a></p>
                 <input type="submit" value="Entrar">
             </div>
+            </form>
 
         </div>
 
     </div>
-    
+
 </body>
 
 </html>
 
 <?php
-    require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/rodape.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/rodape.php";
 ?>

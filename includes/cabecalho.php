@@ -20,7 +20,7 @@
                 <li><a href="/admin/Infos/quemsomos.php">Quem somos</a></li>
                 <li><a href="/admin/Infos/planos.php">Planos</a></li>
                 <li><a href="">Serviços</a></li>
-                <li><a href="/admin/usuarios/cadastrar.php">Entrar/Cadastrar</a></li>
+                <li><a href="/admin/usuarios/cadastrar.php">Minha Conta</a></li>
                 <li><a href="/assets/Itens/Termos de Uso da BuscaTec.pdf">Sobre</a></li>
             </ul>
 
