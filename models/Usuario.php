@@ -29,11 +29,11 @@
             } catch (PDOException $e) {
                 echo "Erro Ao Cadastrar: " . $e->getMessage();
                 return false;
-            }
+            }   
         }
         public static function autenticarLogin($email, $senha){
             try{
-                $query = "SELECT id_usuario, email, senha FROM usuarios WHERE email=:email ";
+                $query = "SELECT id_usuario, email, senha FROM usuario WHERE email=:email ";
                 $conexao = DBConexao::getConexao();
     
                 $stmt = $conexao->prepare($query);

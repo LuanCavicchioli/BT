@@ -1,6 +1,7 @@
 <?php
 
     require_once $_SERVER['DOCUMENT_ROOT'] . "/models/Usuario.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/alerta.php";
 
     class UsuarioController{
 
@@ -15,7 +16,7 @@
                 
                 $dados = [
                     'nome' => $_POST['nome'],  
-                    'senha' => $_POST['senha'], 
+                    'senha' => password_hash($_POST['senha'], PASSWORD_DEFAULT), 
                     'cpf' => $_POST['cpf'],   
                     'email' => $_POST['email'], 
                     'fone' => $_POST['fone']
@@ -47,7 +48,7 @@
                         header("Location:/admin/infos/planos.php"); 
                     }else{
                         echo "E-mail ou senha inválidos"; 
-                        header("Location: "); 
+                        header("Location:/admin/infos/planos.php "); 
                     }
                 }
             }
