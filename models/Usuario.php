@@ -57,6 +57,24 @@
                 return false; 
             }
         }
+
+        public function buscaId($id){
+            try {
+                $sql = "SELECT * FROM {$this->table} WHERE id_usuario = :id_usuario";
+                $stmt = $this->db->prepare($sql);
+                $stmt->bindParam(':id_usuario', $id, PDO::PARAM_INT);
+                $stmt->execute();
+    
+                if ($stmt->rowCount() === 1) {
+                    return $stmt->fetch(PDO::FETCH_ASSOC);
+                } else {
+                    return false; 
+                }
+            } catch (PDOException $e) {
+                echo "Erro na busca por ID: " . $e->getMessage();
+                return false;
+            }
+        }
     
     }
 

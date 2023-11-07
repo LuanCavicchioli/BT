@@ -53,6 +53,51 @@
                 }
             }
         }
+
+        public function usuarioLogado(){
+            
+            if (isset($_SESSION['id_usuario'])){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        public function getUsuario(){
+            session_start();
+            if(isset($_SESSION['id_usuario'])){
+                $idUsuario = $_SESSION['id_usuario'];
+                $usuario = $this->usuarioModel->buscaId($idUsuario);
+
+                if($usuario){
+                    return $usuario->id_usuario;
+                }
+            }
+        }
+        public function getInformacoesPerfil() {
+            if ($this->usuarioLogado()) {
+                // Recupere as informações do perfil do usuário com base no ID do usuário logado
+                $idUsuarioLogado = $_SESSION['id_usuario']; // Supondo que o ID do usuário esteja na sessão
+    
+                // Consulta ao banco de dados para recuperar as informações do perfil
+                $sql = "SELECT nome, email, cpf, fone FROM usuario WHERE id_usuario = :id_usuario";
+                $stmt = $this->db->prepare($sql);
+                $stmt->bindParam(':id_usuario', $idUsuarioLogado, PDO::PARAM_INT);
+                $stmt->execute();
+    
+                // Verifique se a consulta foi bem-sucedida
+                if ($stmt->rowCount() > 0) {
+                    // Retorne os dados do perfil do usuário
+                    return $stmt->fetch(PDO::FETCH_ASSOC);
+                } else {
+                    // Retorne um valor indicando que o perfil não foi encontrado
+                    return null;
+                }
+            } else {
+                // Se o usuário não estiver logado, retorne null ou qualquer outra indicação apropriada
+                return null;
+            }
+        }
     }
 
 ?>

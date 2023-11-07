@@ -7,7 +7,7 @@
         </li>
             <li><a href="/admin/Infos/privacidade.php">Política de Privacidade</a></li>
             <li><a href="/assets/Itens/Termos de Uso da BuscaTec.pdf">Termos de Uso</a></li>
-            <li><a href="/contato">Contato</a></li>
+            <li><a href="/admin/infos/contato.php">Contato</a></li>
         </ul>
     </footer>
 </body>
