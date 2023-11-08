@@ -84,6 +84,7 @@ a {
 }
 
 .entrar input {
+    margin: 15px;
     margin-bottom: 15px;
     cursor: pointer;
     width: 120px;

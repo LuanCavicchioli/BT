@@ -9,7 +9,6 @@
 header{
     width: 100%;
     background-color: #FF8C00;
-    
 }
 .logo-imagem{
     width: 50px;
@@ -19,11 +18,12 @@ header{
 }
 
 .containerprincipal {
-    padding: 17px;
+    padding: 10px;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    
 }
+
 
 .textoh1{
     margin-left: 20px;
@@ -33,6 +33,7 @@ header{
     justify-content: space-around;
     align-items: center;
 }
+
 .menu li{
     font-family: 'Roboto',sans-serif;
     align-items: center;
