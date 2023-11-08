@@ -7,8 +7,11 @@
 
         private $usuarioModel;
 
+        private $db;
+
         public function __construct(){
             $this->usuarioModel = new Usuario();
+            $this->db = DBConexao::getConexao();
         }
 
         public function cadastrarUsuario(){
@@ -33,34 +36,40 @@
             if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 $email = $_POST['email']; 
                 $senha = $_POST['senha'];
-    
+        
                 if(empty($email)){
-                    header("Location: login.php?error=E-mail é obrigatório."); 
+                    header("Location: login.php?error=E-mail é obrigatório"); 
                     exit();
-                }else if(empty($senha)){
-                    header("Location: login.php?error=A senha é obrigatória.");
+                } else if(empty($senha)){
+                    header("Location: login.php?error=A senha é obrigatória");
                     exit();
-                }else{
+                } else {
                     $usuario = Usuario::autenticarLogin($email, $senha);
                     if ($usuario){ 
                         session_start(); 
                         $_SESSION['id_usuario'] = $usuario->id;
                         header("Location:/admin/infos/planos.php"); 
-                    }else{
-                        echo "E-mail ou senha inválidos"; 
-                        header("Location:/admin/infos/planos.php "); 
+                    } else {
+                        header("Location:/admin/usuarios/index.php?error=E-mail ou senha inválidos"); 
+                        exit();
                     }
                 }
             }
         }
+        
 
-        public function usuarioLogado(){
-            
-            if (isset($_SESSION['id_usuario'])){
-                return true;
-            }else{
-                return false;
+        public function usuarioLogado() {
+            session_start();
+            if (isset($_SESSION['id_usuario'])) {
+                $idUsuario = $_SESSION['id_usuario'];
+                $usuario = $this->usuarioModel->buscaId($idUsuario);
+        
+                if ($usuario) {
+                    return $usuario;
+                }
             }
+        
+            return null;
         }
 
         public function getUsuario(){
@@ -76,16 +85,15 @@
         }
         public function getInformacoesPerfil() {
             if ($this->usuarioLogado()) {
-                // Recupere as informações do perfil do usuário com base no ID do usuário logado
-                $idUsuarioLogado = $_SESSION['id_usuario']; // Supondo que o ID do usuário esteja na sessão
+                $idUsuarioLogado = $_SESSION['id_usuario'];
     
-                // Consulta ao banco de dados para recuperar as informações do perfil
+               
                 $sql = "SELECT nome, email, cpf, fone FROM usuario WHERE id_usuario = :id_usuario";
                 $stmt = $this->db->prepare($sql);
                 $stmt->bindParam(':id_usuario', $idUsuarioLogado, PDO::PARAM_INT);
                 $stmt->execute();
     
-                // Verifique se a consulta foi bem-sucedida
+               
                 if ($stmt->rowCount() > 0) {
                     // Retorne os dados do perfil do usuário
                     return $stmt->fetch(PDO::FETCH_ASSOC);

@@ -1,17 +1,16 @@
 <?php
+session_start();
 require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecalho.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/controllers/UsuarioController.php";
 
 $usuarioController = new UsuarioController();
 
 if (!$usuarioController->usuarioLogado()) {
-    
     header("Location: /admin/admin/login.php");
     exit();
 }
 
-// Recupere as informações do perfil do usuário
-$perfilUsuario = $usuarioController->usuarioLogado();
+$perfilUsuario = $usuarioController->getInformacoesPerfil();
 
 ?>
 

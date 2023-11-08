@@ -1,6 +1,7 @@
 <?php
 
     require_once $_SERVER['DOCUMENT_ROOT'] . "/database/DBConexao.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] ."/includes/alerta.php";
     session_start();
 
     class Usuario{

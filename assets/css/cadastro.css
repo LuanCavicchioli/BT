@@ -24,7 +24,7 @@ a {
     height: 40px;
     padding-left: 15px;
     background-color: #FF8C00;
-    margin-bottom: 15px;
+   
 }
 .name input {
     color: #ffffff;
@@ -72,7 +72,7 @@ a {
     margin-bottom: 15px;
 }
 
-.confirmasenha input{
+.confirmarsenha input{
     color: #ffffff;
     border-radius: 15px;
     border: none;
@@ -84,7 +84,6 @@ a {
 }
 
 .entrar input {
-    margin-bottom: 15px;
     cursor: pointer;
     width: 120px;
     height: 40px;
@@ -92,6 +91,11 @@ a {
     border: none;
     background-color: #FF8C00;
     color: #ffffff;
+    
+}
+
+.senha i{
+
 }
 
 input::placeholder {
@@ -111,3 +115,4 @@ input::placeholder {
 input:focus {
     outline: none;
 }
+
