@@ -9,10 +9,8 @@
 header{
     width: 100%;
     background-color: #FF8C00;
-    display: flex;
-    justify-content: space-around;
+    
 }
-
 .logo-imagem{
     width: 50px;
     height: 50px;
@@ -20,16 +18,21 @@ header{
     background-color: black;
 }
 
-.containerprincipal{
+.containerprincipal {
     padding: 17px;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
 }
 
 .textoh1{
     margin-left: 20px;
 }
-
+#cabecalho{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 .menu li{
     font-family: 'Roboto',sans-serif;
     align-items: center;
