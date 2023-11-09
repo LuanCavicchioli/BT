@@ -1,11 +1,10 @@
-body {
+.body {
     font-family: 'Roboto', sans-serif;
-
 }
 
 a {
     text-decoration: none;
-    color:coral;
+    color: coral;
 }
 
 #login {
@@ -16,7 +15,7 @@ a {
     flex-direction: row;
 }
 
-.telefone input{
+.telefone input {
     color: #ffffff;
     border-radius: 15px;
     border: none;
@@ -24,8 +23,8 @@ a {
     height: 40px;
     padding-left: 15px;
     background-color: #FF8C00;
-   
 }
+
 .name input {
     color: #ffffff;
     border-radius: 15px;
@@ -37,7 +36,7 @@ a {
     margin-bottom: 15px;
 }
 
-.cpf input{
+.cpf input {
     color: #ffffff;
     border-radius: 15px;
     border: none;
@@ -57,7 +56,10 @@ a {
     padding-left: 15px;
     background-color: #FF8C00;
     margin-bottom: 15px;
-  
+}
+
+.senha {
+    position: relative;
 }
 
 .senha input {
@@ -70,9 +72,28 @@ a {
     background-color: #FF8C00;
     margin-top: 15px;
     margin-bottom: 15px;
+    padding-right: 40px; 
 }
 
-.confirmarsenha input{
+
+.senha i{
+    font-size: 15px;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.confirmasenha i {
+    font-size: 15px;
+    cursor: pointer;
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.confirmarsenha input {
     color: #ffffff;
     border-radius: 15px;
     border: none;
@@ -91,18 +112,11 @@ a {
     border: none;
     background-color: #FF8C00;
     color: #ffffff;
-    
-}
-
-.senha i{
-
 }
 
 input::placeholder {
     color: #ffffff;
 }
-
-
 
 .caixa {
     margin-top: 65px;
@@ -115,4 +129,3 @@ input::placeholder {
 input:focus {
     outline: none;
 }
-
