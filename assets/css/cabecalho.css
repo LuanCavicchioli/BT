@@ -6,6 +6,33 @@
     box-sizing: border-box;
 }
 
+/* body{
+    display: flex;
+    flex-direction: column;   
+    justify-content: space-between; 
+    height: 100vh;
+} */
+.container{
+    width: 1140px;
+    margin: 0 auto; 
+    
+}
+
+
+
+/* main{
+
+    flex-grow: 1;
+} */
+
+.box-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  
+}
+
 header{
     width: 100%;
     background-color: #FF8C00;

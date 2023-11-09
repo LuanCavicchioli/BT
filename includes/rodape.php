@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/assets/css/rodape.css">
+
 <footer class="rodape">
         <ul>
             <li><a href="/admin/Infos/privacidade.php">Política de Privacidade</a></li>
