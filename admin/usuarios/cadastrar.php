@@ -23,6 +23,7 @@ $usuarioController->cadastrarUsuario();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <script src="/assets/js/formatarcpf.js"></script>
     <script src="/assets/js/exibirsenha.js"></script>   
+    <script src="/assets/js/jscadastrar.js"></script>   
     <link rel="stylesheet" href="/assets/css/cadastro.css">
     <title>BuscaTec- Cadastro</title>
 </head>

@@ -76,6 +76,32 @@
                 return false;
             }
         }
+
+        public function listar()
+        {
+            try {
+    
+                $sql = "SELECT * FROM {$this->table}";
+                $stmt = $this->db->query($sql);
+                return $stmt->fetchALL(PDO::FETCH_OBJ);
+            } catch (PDOException $e) {
+                echo "Erro Na Listagem:" . $e->getMessage();
+                return null;
+            }
+        }
+        public function excluir($id_usuario)
+        {
+            try {
+                $sql = "DELETE FROM {$this->table} WHERE id_usuario=:id_usuario";
+                $stmt = $this->db->prepare($sql);
+                $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+                $stmt->execute();
+                return true;
+            } catch (PDOException $e) {
+                echo "Erro na hora de deletar:" . $e->getMessage();
+                return false;
+            }
+        }
     
     }
 

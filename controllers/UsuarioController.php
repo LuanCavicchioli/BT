@@ -1,7 +1,7 @@
 <?php
 
     require_once $_SERVER['DOCUMENT_ROOT'] . "/models/Usuario.php";
-    require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/alerta.php";
+   
 
     class UsuarioController{
 
@@ -12,6 +12,12 @@
         public function __construct(){
             $this->usuarioModel = new Usuario();
             $this->db = DBConexao::getConexao();
+        }
+
+        public function listarUsuarios()
+        {
+            //vai puxar do model usuario o metodo listar
+            return $this->usuarioModel->listar();
         }
 
         public function cadastrarUsuario(){
@@ -105,6 +111,12 @@
                 // Se o usuário não estiver logado, retorne null ou qualquer outra indicação apropriada
                 return null;
             }
+        }
+        public function excluirUsuario(){
+
+            $this->usuarioModel->excluir($_GET['id_usuario']);
+            header('Location: index.php');
+            exit;
         }
     }
 
