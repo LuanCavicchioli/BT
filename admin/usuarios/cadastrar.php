@@ -19,11 +19,15 @@ $usuarioController->cadastrarUsuario();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <script src="/assets/js/formatarcpf.js"></script>
-    <script src="/assets/js/exibirsenha.js"></script>   
-    <script src="/assets/js/jscadastrar.js"></script>   
+
+    <script src="/assets/js/exibirsenha.js"></script>
+    <script src="/assets/js/jscadastrar.js"></script>
+    <script src="/assets/js/formatar.js"></script>
+
     <link rel="stylesheet" href="/assets/css/cadastro.css">
     <title>BuscaTec- Cadastro</title>
 </head>
@@ -38,6 +42,7 @@ $usuarioController->cadastrarUsuario();
             <h1>Cadastrar</h1>
             <form action="cadastrar.php" method="post">
 
+
                 <div class="name">
                     <input type="name" name="nome" id="nome" placeholder="Nome">
                 </div>
@@ -47,11 +52,12 @@ $usuarioController->cadastrarUsuario();
                 </div>
 
                 <div class="cpf">
-                    <input type="cpf" name="cpf" id="cpf" placeholder="CPF" maxlength="14">
+                    <input type="text" class="cpf" name="cpf" id="cpf" placeholder="CPF" maxlength="14">
                 </div>
 
                 <div class="telefone">
-                    <input type="telefone" name="fone" id="fone" placeholder="Telefone">
+                    <input type="text" class="telefone" name="telefone" id="telefone" placeholder="Telefone"
+                        maxlength="15">
                 </div>
                 <div class="senha">
                     <input type="password" name="senha" id="senha" placeholder="Senha">
@@ -60,8 +66,15 @@ $usuarioController->cadastrarUsuario();
                 <div class="confirmarsenha">
                     <input type="password" name="confirmasenha" id="confirmasenha" placeholder="Confirmar Senha">
                     <i class="bi bi-eye-fill" id="btnconfirmarsenha" onclick="mostrarConfirmarSenha()"></i>
-      
                 </div>
+                <div class="selecao">
+                    <label for="tipo">Escolha o tipo de cadastro:</label>
+                    <select name="perfil" id="perfil">
+                        <option value="usuario">Usuário</option>
+                        <option value="empresa">Empresa</option>
+                    </select>
+                </div>
+
 
 
                 <div class="entrar">
@@ -77,10 +90,10 @@ $usuarioController->cadastrarUsuario();
 
     <script>
         window.onload = function () {
-            formatarCPF();
+            formatarCampos(); // Chama a função para formatar CPF e número de telefone
         };
     </script>
-    
+
 
 </body>
 

@@ -17,7 +17,7 @@ if(isset($_GET["del"]) && !empty($_GET['id_usuario'])){
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>#</th>
+                <th>ID  </th>
                 <th>Nome</th>
                 <th>CPF</th>
                 <th>Email</th>
@@ -40,10 +40,10 @@ if(isset($_GET["del"]) && !empty($_GET['id_usuario'])){
                 <td><?=$usuario->cpf?></td>
                 <td><?=$usuario->email?></td>
                 <td><?=$usuario->senha?></td>
-                <td><?=$usuario->fone?></td>
+                <td><?=$usuario->telefone?></td>
                 <td><?=$usuario->perfil?></td>
                 <td>
-                   <a href="" class="btn btn-primary">Editar</a>
+                <a href="/admin/usuarios/editar.php?id_usuario=<?=$usuario->id_usuario?>" class="btn btn-primary">Editar</a>
                    <a href="index.php?id_usuario=<?=$usuario->id_usuario?>&del" class="btn btn-danger">Excluir</a>
                 </td>
             </tr>
