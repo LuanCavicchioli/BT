@@ -149,7 +149,7 @@ class UsuarioController
     public function excluirUsuario()
     {
         $this->usuarioModel->excluir($_GET['id_usuario']);
-        header('Location: index.php');
+        header('Location: /admin/admin/admnistrativo.php');
         exit;
     }
 

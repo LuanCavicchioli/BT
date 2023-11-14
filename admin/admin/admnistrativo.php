@@ -43,8 +43,8 @@ if(isset($_GET["del"]) && !empty($_GET['id_usuario'])){
                 <td><?=$usuario->telefone?></td>
                 <td><?=$usuario->perfil?></td>
                 <td>
-                <a href="/admin/usuarios/editar.php?id_usuario=<?=$usuario->id_usuario?>" class="btn btn-primary">Editar</a>
-                   <a href="index.php?id_usuario=<?=$usuario->id_usuario?>&del" class="btn btn-danger">Excluir</a>
+                    <a href="/admin/usuarios/editar.php?id_usuario=<?=$usuario->id_usuario?>" class="btn btn-primary">Editar</a>
+                   <a href="admnistrativo.php?id_usuario=<?=$usuario->id_usuario?>&del" class="btn btn-danger">Excluir</a>
                 </td>
             </tr>
             <?php endforeach; ?>
