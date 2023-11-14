@@ -24,7 +24,7 @@
                 <li><a href="/admin/admin/admnistrativo.php">Administrativo</a></li>
                 <li><a href="/assets/Itens/Termos de Uso da BuscaTec.pdf">Sobre</a></li>
             </ul>
-
+        
         </div>
     </header>
 </body>

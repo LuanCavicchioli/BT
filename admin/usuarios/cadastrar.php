@@ -23,11 +23,11 @@ $usuarioController->cadastrarUsuario();
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
-    <script src="/assets/js/exibirsenha.js"></script>
-    <script src="/assets/js/jscadastrar.js"></script>
-    <script src="/assets/js/formatar.js"></script>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+    <script src="/assets/js/main.js"></script>
+ 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11"><script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="/assets/css/cadastro.css">
     <title>BuscaTec- Cadastro</title>
 </head>
@@ -93,7 +93,21 @@ $usuarioController->cadastrarUsuario();
             formatarCampos(); // Chama a função para formatar CPF e número de telefone
         };
     </script>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const cadastroSucesso = urlParams.get('cadastro');
 
+            if (cadastroSucesso === 'true') {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Cadastro Realizado',
+                    text: 'Cadastro realizado com sucesso!',
+                });
+            }
+        });
+    </script>
 
 </body>
 

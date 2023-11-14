@@ -21,45 +21,82 @@ class UsuarioController
     public function cadastrarUsuario()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $nome = $_POST['nome'];
+            $email = $_POST['email'];
+            $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+            $perfil = $_POST['perfil'];
+            $cpf = $_POST['cpf'];
+    
+            // Verificar se o usuário já está cadastrado
+            if ($this->usuarioJaCadastrado($email, $cpf)) {
+                exit;
+            }
+    
+            // Preparar os dados para o cadastro
             $dados = [
-                'nome' => $_POST['nome'],
-                'senha' => password_hash($_POST['senha'], PASSWORD_DEFAULT),
-                'cpf' => $_POST['cpf'],
-                'email' => $_POST['email'],
-                'telefone' => $_POST['telefone'],
-                'perfil' => $_POST['perfil']
+                'nome' => $nome,
+                'email' => $email,
+                'senha' => $senha,
+                'perfil' => $perfil,
+                'cpf' => $cpf
             ];
-
+    
+            // Chamar o método de cadastro no modelo
             $this->usuarioModel->cadastrar($dados);
+    
+            // Redirecionar para a página de login com parâmetro indicando cadastro realizado
+            header('Location: /admin/admin/login.php?cadastro=true');
             exit;
         }
     }
-
-    public function loginUsuario()
+    
+    private function usuarioJaCadastrado($email, $cpf)
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = $_POST['email'];
-            $senha = $_POST['senha'];
+   
+        $conn = DBConexao::getConexao();
+    
+        $query = "SELECT * FROM usuario WHERE email = :email OR cpf = :cpf";
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':cpf', $cpf);
+        $stmt->execute();
+    
+        $userExists = $stmt->rowCount() > 0; 
+    
+        if ($userExists) {
+            echo "Usuário já cadastrado!";
+        } else {
+            echo "Usuário não cadastrado ainda.";
+        }
+    
+        return $userExists;
+    }
 
-            if (empty($email)) {
-                header("Location: login.php?error=E-mail é obrigatório");
-                exit();
-            } else if (empty($senha)) {
-                header("Location: login.php?error=A senha é obrigatória");
-                exit();
-            } else {
-                $usuario = Usuario::autenticarLogin($email, $senha);
-                if ($usuario) {
-                    session_start();
-                    $_SESSION['id_usuario'] = $usuario['id_usuario'];
-                    header("Location:/admin/infos/planos.php");
-                } else {
-                    header("Location:/admin/usuarios/index.php?error=E-mail ou senha inválidos");
+        public function loginUsuario()
+        {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $email = $_POST['email'];
+                $senha = $_POST['senha'];
+
+                if (empty($email)) {
+                    header("Location: login.php?error=E-mail é obrigatório");
                     exit();
+                } else if (empty($senha)) {
+                    header("Location: login.php?error=A senha é obrigatória");
+                    exit();
+                } else {
+                    $usuario = Usuario::autenticarLogin($email, $senha);
+                    if ($usuario) {
+                        session_start();
+                        $_SESSION['id_usuario'] = $usuario['id_usuario'];
+                        header("Location:/admin/infos/planos.php");
+                    } else {
+                        header("Location:/admin/usuarios/index.php?error=E-mail ou senha inválidos");
+                        exit();
+                    }
                 }
             }
         }
-    }
 
     public function usuarioLogado()
     {
@@ -112,7 +149,7 @@ class UsuarioController
     public function excluirUsuario()
     {
         $this->usuarioModel->excluir($_GET['id_usuario']);
-        header('Location: /admin/admin/admnistrativo.php');
+        header('Location: index.php');
         exit;
     }
 
